@@ -23,7 +23,7 @@ RUN /bin/bash -c "curl -L ${MAMBAURL} > mambaforge.sh \
 ##### BUILD CONDA ENV #####
 COPY dev/environment.yml .
 COPY dev/requirements.txt .
-RUN /bin/bash -c "${CONDABINDIR}/conda -vvv env create --file environment.yml \
+RUN /bin/bash -c "${CONDABINDIR}/mamba env create --file environment.yml \
   && ${CONDABINDIR}/conda clean --all --yes \
   && rm -f environment.yml requirements.txt"
 
