@@ -21,6 +21,7 @@ RUN /bin/bash -c "curl -L ${MAMBAURL} > mambaforge.sh \
     && rm -f mambaforge.sh"
 
 ##### BUILD CONDA ENV #####
+ENV CONDA_VERBOSITY 3
 COPY dev/environment.yml .
 COPY dev/requirements.txt .
 RUN /bin/bash -c "${CONDABINDIR}/mamba env create --file environment.yml \
